@@ -29,19 +29,33 @@ const Total = (props) => {
   )
 }
 
+const Footer = (props) => {
+  return (
+    <p>
+      {props.fullName} - {props.courseCode} - {props.section}
+    </p>
+  )
+}
+
 const App = () => {
-  const course = 'Web Systems and Technologies'
-  const parts = [
-    { name: 'Data Structures', units: 3 },
-    { name: 'Discrete Mathematics', units: 3 },
-    { name: 'Physical Education', units: 2 },
-  ]
+  const course = {
+    name: 'Web Systems and Technologies',
+    parts: [
+      { name: 'Data Structures', units: 3 },
+      { name: 'Discrete Mathematics', units: 3 },
+      { name: 'Physical Education', units: 2 },
+    ],
+  }
+  const fullName = 'John Mark Tanaleon'
+  const courseCode = 'CSIT340'
+  const section = 'G8'
 
   return (
     <div>
-      <Header course={course} />
-      <Content parts={parts} />
-      <Total parts={parts} />
+      <Header course={course.name} />
+      <Content parts={course.parts} />
+      <Total parts={course.parts} />
+      <Footer fullName={fullName} courseCode={courseCode} section={section} />
     </div>
   )
 }
